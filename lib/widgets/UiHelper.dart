@@ -12,7 +12,7 @@ class UiHelper{
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white38),
+          borderSide: BorderSide(color: Colors.black26),
 
         ),
       ),

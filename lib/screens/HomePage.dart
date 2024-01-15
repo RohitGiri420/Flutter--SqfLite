@@ -1,10 +1,8 @@
-import 'dart:html';
-import 'dart:math';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:sqflite1/database/DbHelper.dart';
 import 'package:sqflite1/widgets/UiHelper.dart';
-import 'dart:developer';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,10 +23,13 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
+
             UiHelper.CustomTextField(emailController, "Email"),
             UiHelper.CustomTextField(passController, "Password"),
-            UiHelper.CustomButton(() { adddata(emailController.text.toString(), passController.text.toString()); }, "Save")
+            UiHelper.CustomButton(() { addData(emailController.text.toString(), passController.text.toString()); }, "Save")
+
           ],
 
         ),
@@ -37,13 +38,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  adddata(String email,String password){
-    if(email=="" && password == ""){
-      return 0;
+  addData(String email,String password){
+    if(email==""||password==""){
+      log("enter required field");
     }
 
     else{
       DbHelper().addData(email, password);
+      log("data inserted Sucessfully");
     }
   }
+
+
 }
