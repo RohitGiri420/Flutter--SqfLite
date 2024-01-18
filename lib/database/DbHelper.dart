@@ -40,7 +40,7 @@ class DbHelper {
     var db = await getDb();
     int count =await db.insert(TableName, notedModel.toMap());
     return count>0;
-  }
+  }   
 
   Future<List<NotedModel>> getData() async{
 
