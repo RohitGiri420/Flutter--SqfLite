@@ -23,10 +23,7 @@ class UiHelper{
   static CustomButton(VoidCallback onpressed,String text)=>ElevatedButton(onPressed: onpressed, child: Text(text));
 
   static CustomListView(String Index, String title,String subtitle, int count ){
-    return ListView.builder(itemBuilder: (context, index) {
-      return ListTile(leading: Text(Index) ,title: Text(title),subtitle:Text(subtitle),);
-    },
-    itemCount: count,);
+    return
   }
 
 }
