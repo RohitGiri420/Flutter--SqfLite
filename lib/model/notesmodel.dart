@@ -1,12 +1,25 @@
-class NotesModel{
+import 'package:sqflite1/database/DbHelper.dart';
 
-  int? id;
-  String email;
-  String password;
+class NotedModel{
 
-  NotesModel({required this.email,required this.password,this.id})
+  int? NoteId;
+  String Title;
+  String Decs;
 
-  NotesModel.fromMap(Map<String,dynamic>map){
-    return NotesModel(email: map[email], password: map[password]);
+  NotedModel({required this.Title,required this.Decs,this.NoteId});
+
+  factory NotedModel.fromMap(Map<String,dynamic>map){
+
+    return NotedModel(Title: map[DbHelper.NoteTitle], Decs: map[DbHelper.NoteDesc],NoteId: map[DbHelper.NoteId]);
+
   }
+
+  Map<String,dynamic> toMap(){
+    return{
+      DbHelper.NoteId:NoteId,
+      DbHelper.NoteTitle:Title,
+      DbHelper.NoteDesc:Decs
+    };
+  }
+
 }

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:sqflite1/database/DbHelper.dart';
+import 'package:sqflite1/model/notesmodel.dart';
 import 'package:sqflite1/widgets/UiHelper.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
 
             UiHelper.CustomTextField(emailController, "Email"),
             UiHelper.CustomTextField(passController, "Password"),
-            UiHelper.CustomButton(() { addData(emailController.text.toString(), passController.text.toString()); }, "Save")
+            UiHelper.CustomButton(() {  }, "Save")
 
           ],
 
@@ -36,18 +37,9 @@ class _HomePageState extends State<HomePage> {
       ),
 
     );
+
   }
 
-  addData(String email,String password){
-    if(email==""||password==""){
-      log("enter required field");
-    }
-
-    else{
-      DbHelper().addData(email, password);
-      log("data inserted Sucessfully");
-    }
-  }
 
 
 }
