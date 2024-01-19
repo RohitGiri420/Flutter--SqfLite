@@ -14,6 +14,8 @@ class DbHelper {
   static String NoteTitle = "Note_Title";
   static String NoteDesc = "Note_Description";
 
+
+
   Future<Database> getDb() async {
     if (_database != null) {
       return _database!;
@@ -21,6 +23,8 @@ class DbHelper {
       return await initDb();
     }
   }
+
+
 
   Future<Database> initDb() async {
     Directory directory = await getApplicationDocumentsDirectory();
@@ -54,5 +58,4 @@ class DbHelper {
     }
     return ListNotes;
   }
-
 }
